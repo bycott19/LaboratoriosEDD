@@ -1,0 +1,17 @@
+class Solution {
+    public int findJudge(int n, int[][] trust) {
+        int[] grado = new int[n + 1];
+
+        for (int[] relacion : trust) {
+            grado[relacion[0]]--;
+            grado[relacion[1]]++;
+        }
+
+        for (int i = 1; i <= n; i++) {
+            if (grado[i] == n - 1) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
